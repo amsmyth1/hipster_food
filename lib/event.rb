@@ -76,4 +76,24 @@ class Event
       item.name.to_s
     end
   end
+
+  def overstocked_items
+    total_items.select do |item|
+      item_count(item) > 50 && item_duplicate?(item)
+    end
+  end
+
+  def item_duplicate?(item)
+    trucklist = []
+    @food_trucks.each do |truck|
+      if truck.in_stock?(item)
+        trucklist << truck
+      end
+    end
+    if trucklist.count > 1
+      true
+    else
+      false
+    end
+  end
 end

@@ -124,6 +124,6 @@ class EventTest < Minitest::Test
     assert_equal 7, event.total_inventory[item2][:quantity]
     assert_equal 50, event.total_inventory[item4][:quantity]
     assert_equal expect, event.total_inventory
+    assert_equal [item1], event.overstocked_items
   end
-
 end
