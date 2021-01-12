@@ -106,11 +106,11 @@ class EventTest < Minitest::Test
         :food_trucks => [food_truck1]
       },
       item3 => {
-        :quantity => 50,
+        :quantity => 35,
         :food_trucks => [food_truck2, food_truck3]
       },
       item4 => {
-        :quantity => 35,
+        :quantity => 50,
         :food_trucks => [food_truck2]
       }
     }
@@ -118,6 +118,11 @@ class EventTest < Minitest::Test
     sorted = ["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"]
 
     assert_equal sorted, event.sorted_items_list
+    # assert_equal 1, event.item_quanitity_and_trucks(item1)
+    # assert_equal ({item1 => {}, item2 => {}, item3 => {}, item4 => {}}), event.total_inventory_keys
+    assert_equal 100, event.total_inventory[item1][:quantity]
+    assert_equal 7, event.total_inventory[item2][:quantity]
+    assert_equal 50, event.total_inventory[item4][:quantity]
     assert_equal expect, event.total_inventory
   end
 
