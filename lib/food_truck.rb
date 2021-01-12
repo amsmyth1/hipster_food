@@ -20,4 +20,8 @@ class FoodTruck
       item.math_price * quantity.to_f
     end
   end
+
+  def in_stock?(item)
+    @inventory.keys.any?(item)
+  end
 end

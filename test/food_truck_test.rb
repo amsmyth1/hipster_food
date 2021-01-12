@@ -60,4 +60,14 @@ class FoodTruckTest < Minitest::Test
     assert_equal 345.00, food_truck2.potential_revenue
     assert_equal 243.75, food_truck3.potential_revenue
   end
+
+  def test_if_in_stock
+    ft = FoodTruck.new("Rocky Mountain Pies")
+    item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
+    item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
+    ft.stock(item1, 30)
+
+    assert_equal true, ft.in_stock?(item1)
+    assert_equal false, ft.in_stock?(item2)
+  end
 end
