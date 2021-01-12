@@ -10,5 +10,10 @@ class FoodTruckTest < Minitest::Test
 
     assert_instance_of FoodTruck, ft
     assert_equal "Rocky Mountain Pies", ft.name
+    assert_equal ({}), ft.inventory
+  end
+
+  def test_it_has_stock
+
   end
 end
