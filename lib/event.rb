@@ -22,4 +22,19 @@ class Event
       truck.in_stock?(item)
     end
   end
+
+  def total_items
+    @food_trucks.map do |truck|
+      truck.inventory.keys
+    end.flatten.uniq
+  end
+
+  def sorted_items_list
+    sort = total_items.sort_by do |item|
+      item.name
+    end
+    sort.map do |item|
+      item.name.to_s
+    end
+  end
 end

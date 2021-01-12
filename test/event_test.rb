@@ -115,6 +115,9 @@ class EventTest < Minitest::Test
       }
     }
 
+    sorted = ["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"]
+
+    assert_equal sorted, event.sorted_items_list
     assert_equal expect, event.total_inventory
   end
 
