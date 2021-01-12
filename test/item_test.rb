@@ -12,4 +12,12 @@ class ItemTest < Minitest::Test
     assert_equal 'Peach Pie (Slice)', item1.name
     assert_equal ("$3.75"), item1.price
   end
+
+  def test_math_price
+    item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
+    item2 = Item.new({name: 'Peach Pie (Slice)', price: "$12.75"})
+
+    assert_equal 3.75, item1.math_price
+    assert_equal 12.75, item2.math_price
+  end
 end
