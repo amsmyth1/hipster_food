@@ -23,4 +23,10 @@ class Event
       food_truck.name
     end
   end
+
+  def food_trucks_that_sell(item)
+    @food_trucks.select do |truck|
+      truck.in_stock?(item)
+    end 
+  end
 end

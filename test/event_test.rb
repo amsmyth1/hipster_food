@@ -45,7 +45,6 @@ class EventTest < Minitest::Test
   end
 
   def test_it_can_add_food_trucks_that_sell
-    skip
     event = Event.new("South Pearl Street Farmers Market")
     item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
     item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
@@ -68,7 +67,7 @@ class EventTest < Minitest::Test
     event.add_food_truck(food_truck3)
 
     expect = [food_truck1, food_truck3]
-    expect = [food_truck2]
+    expect2 = [food_truck2]
 
     assert_equal expect, event.food_trucks_that_sell(item1)
     assert_equal expect2, event.food_trucks_that_sell(item4)
