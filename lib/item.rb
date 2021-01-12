@@ -3,7 +3,7 @@ class Item
               :price
 
   def initialize(attributes)
-    @name = attributes[:name]
+    @name = attributes[:name].to_sym
     @price = attributes[:price]
   end
 
